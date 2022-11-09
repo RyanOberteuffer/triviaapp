@@ -7,7 +7,6 @@
 // 6. Add a back button to all the views (except the base one, of course). DONE
 // 7. Find and add some pictures for all the cities.
 // 8. For the buttons corresponding to MY two cities, add some cool stuff
-// 9 Now comment that changes file
 
 //Note: The iphone has a max polling rate of 100 times per second, which corresponds to an update interval of 10 ms. A polling rate of once per second is really slow, so I think that asking the user for a number between 10 and 1000 should be a good range.
 
@@ -24,12 +23,18 @@ const CityButton = (props) => {
 }
 
 const ButtonsList = () => {
-  let cityNames = ["Savannah, Georgia", "Bangkok, Thailand", "Singapore, Singapore", "Dubhai, UAE", "Miami, Florida", "Tokyo, Japan", "Rekavik, Iceland", "Shanghai, China", "Chicago, Illinois", "Paris, France", "New York City, New York", "Sydney, Australia", "Medellin, Columbia"];
+  let cityNames = ["Savannah, Georgia", "Bangkok, Thailand", "Singapore, Singapore", "Dubai, UAE", "Miami, Florida", "Tokyo, Japan", "Rekavik, Iceland", "Shanghai, China", "Chicago, Illinois", "Paris, France", "New York City, New York", "Sydney, Australia", "Medellin, Columbia"];
   const [currView, setCurrView] = useState(0);
+  //CurrView Chart:
+  // 0: Home menu for city selection
+  // 1-13: Pages containing information on specific cities
+
   //This is a really cool trick.
   let cityList=cityNames.map((city,index)=>{
     return <CityButton key={index} style={styles.button} cityName={city} onPress={() => setCurrView(index+1)}></CityButton>
   })
+
+  //The home view
   if(currView == 0) {
     return (
       <ScrollView centerContent={true}>
@@ -39,6 +44,8 @@ const ButtonsList = () => {
       </ScrollView>
       )
   }
+
+  //View for info on Savannah, Georgia
   if(currView == 1) {
     return (
       <ScrollView centerContent={true}>
@@ -53,6 +60,8 @@ const ButtonsList = () => {
       </ScrollView>
     )
   }
+
+  //View for info on Bangkok, Thailand
   if(currView == 2) {
     return (
       <ScrollView centerContent={true}>
@@ -67,6 +76,8 @@ const ButtonsList = () => {
       </ScrollView>
     )
   }
+
+  //View for info on Singapore, Singapore
   if(currView == 3) {
     return (
       <ScrollView centerContent={true}>
@@ -81,6 +92,8 @@ const ButtonsList = () => {
       </ScrollView>
     )
   }
+
+  //View for info on Dubai, UAE
   if(currView == 4) {
     return (
       <ScrollView centerContent={true}>
@@ -95,6 +108,8 @@ const ButtonsList = () => {
       </ScrollView>
     )
   }
+
+  //View for info on Miami, Florida
   if(currView == 5) {
     return (
       <ScrollView centerContent={true}>
@@ -109,6 +124,8 @@ const ButtonsList = () => {
       </ScrollView>
     )
   }
+
+  //View for info on Tokyo, Japan
   if(currView == 6) {
     return (
       <ScrollView centerContent={true}>
@@ -123,6 +140,8 @@ const ButtonsList = () => {
       </ScrollView>
     )
   }
+
+  //View for info on Rekavik, Iceland
   if(currView == 7) {
     return (
       <ScrollView centerContent={true}>
@@ -137,6 +156,8 @@ const ButtonsList = () => {
       </ScrollView>
     )
   }
+
+  //View for info on Shanghai, China
   if(currView == 8) {
     return (
       <ScrollView centerContent={true}>
@@ -151,6 +172,8 @@ const ButtonsList = () => {
       </ScrollView>
     )
   }
+
+  //View for info on Chicago, Illinois
   if(currView == 9) {
     return (
       <ScrollView centerContent={true}>
@@ -165,6 +188,8 @@ const ButtonsList = () => {
       </ScrollView>
     )
   }
+
+  //View for info on Paris, France
   if(currView == 10) {
     return (
       <ScrollView centerContent={true}>
@@ -179,6 +204,8 @@ const ButtonsList = () => {
       </ScrollView>
     )
   }
+
+  //View for info on New York City, New York
   if(currView == 11) {
     return (
       <ScrollView centerContent={true}>
@@ -193,6 +220,8 @@ const ButtonsList = () => {
       </ScrollView>
     )
   }
+
+  //View for info on Sydney, Australia
   if(currView == 12) {
     return (
       <ScrollView centerContent={true}>
@@ -207,6 +236,8 @@ const ButtonsList = () => {
       </ScrollView>
     )
   }
+
+  //View for info on Medellin, Columbia
   if(currView == 13) {
     return (
       <ScrollView centerContent={true}>
