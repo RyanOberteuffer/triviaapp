@@ -8,7 +8,6 @@
 // 7. Find and add some pictures for all the cities. DONE
 // 8. For the buttons corresponding to MY two cities, add some cool stuff
 
-//Note: The iphone has a max polling rate of 100 times per second, which corresponds to an update interval of 10 ms. A polling rate of once per second is really slow, so I think that asking the user for a number between 10 and 1000 should be a good range.
 
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View, SafeAreaView, ScrollView } from 'react-native';
