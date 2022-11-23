@@ -24,6 +24,23 @@ const CityButton = (props) => {
 const ButtonsList = () => {
   let cityNames = ["Savannah, Georgia", "Bangkok, Thailand", "Singapore, Singapore", "Dubai, UAE", "Miami, Florida", "Tokyo, Japan", "Rekavik, Iceland", "Shanghai, China", "Chicago, Illinois", "Paris, France", "New York City, New York", "Sydney, Australia", "Medellin, Columbia"];
   const [currView, setCurrView] = useState(0);
+
+  var viewDictionary = {
+    cityList: 0,
+    Savannah: 1,
+    Bangkok: 2,
+    Singapore: 3,
+    Dubai: 4,
+    Miami: 5,
+    Tokyo: 6,
+    Rekavik: 7,
+    Shanghai: 8,
+    Chicago: 9,
+    Paris: 10,
+    newYorkCity: 11,
+    Sydney: 12,
+    Medellin: 13
+  };
   //CurrView Chart:
   // 0: Home menu for city selection
   // 1-13: Pages containing information on specific cities
@@ -34,7 +51,7 @@ const ButtonsList = () => {
   })
 
   //The home view
-  if(currView == 0) {
+  if(currView == viewDictionary.cityList) {
     return (
       <ScrollView centerContent={true}>
         <SafeAreaView style={styles.container}>
@@ -44,24 +61,21 @@ const ButtonsList = () => {
       )
   }
 
+  if(currView)
+
   //View for info on Savannah, Georgia
-  if(currView == 1) {
+  if(currView == viewDictionary.Savannah) {
     return (
-      <ScrollView centerContent={true}>
-        <SafeAreaView style={styles.container}>
-          <Text>Sample text here.</Text>
-          <View style={styles.bottomcontainer}>
-            <TouchableOpacity style={styles.backButton} onPress={() => setCurrView(0)}>
-              <Text>Back</Text>
-            </TouchableOpacity>
-          </View>
-        </SafeAreaView>
-      </ScrollView>
+      <View style={{justifyContent: "center",
+        alignItems: "center", 
+        backgroundColor: "purple"}}>
+                 <Text> Hello bangkok! </Text>
+      </View>
     )
   }
 
   //View for info on Bangkok, Thailand
-  if(currView == 2) {
+  if(currView == viewDictionary.Bangkok) {
     return (
       <ScrollView centerContent={true}>
         <SafeAreaView style={styles.container}>
@@ -77,7 +91,7 @@ const ButtonsList = () => {
   }
 
   //View for info on Singapore, Singapore
-  if(currView == 3) {
+  if(currView == viewDictionary.Singapore) {
     return (
       <ScrollView centerContent={true}>
         <SafeAreaView style={styles.container}>
@@ -93,7 +107,7 @@ const ButtonsList = () => {
   }
 
   //View for info on Dubai, UAE
-  if(currView == 4) {
+  if(currView == viewDictionary.Dubai) {
     return (
       <ScrollView centerContent={true}>
         <SafeAreaView style={styles.container}>
@@ -109,7 +123,7 @@ const ButtonsList = () => {
   }
 
   //View for info on Miami, Florida
-  if(currView == 5) {
+  if(currView == viewDictionary.Miami) {
     return (
       <ScrollView centerContent={true}>
         <SafeAreaView style={styles.container}>
@@ -125,7 +139,7 @@ const ButtonsList = () => {
   }
 
   //View for info on Tokyo, Japan
-  if(currView == 6) {
+  if(currView == viewDictionary.Tokyo) {
     return (
       <ScrollView centerContent={true}>
         <SafeAreaView style={styles.container}>
@@ -141,7 +155,7 @@ const ButtonsList = () => {
   }
 
   //View for info on Rekavik, Iceland
-  if(currView == 7) {
+  if(currView == viewDictionary.Rekavik) {
     return (
       <ScrollView centerContent={true}>
         <SafeAreaView style={styles.container}>
@@ -157,7 +171,7 @@ const ButtonsList = () => {
   }
 
   //View for info on Shanghai, China
-  if(currView == 8) {
+  if(currView == viewDictionary.Shanghai) {
     return (
       <ScrollView centerContent={true}>
         <SafeAreaView style={styles.container}>
@@ -173,7 +187,7 @@ const ButtonsList = () => {
   }
 
   //View for info on Chicago, Illinois
-  if(currView == 9) {
+  if(currView == viewDictionary.Chicago) {
     return (
       <ScrollView centerContent={true}>
         <SafeAreaView style={styles.container}>
@@ -189,7 +203,7 @@ const ButtonsList = () => {
   }
 
   //View for info on Paris, France
-  if(currView == 10) {
+  if(currView == viewDictionary.Paris) {
     return (
       <ScrollView centerContent={true}>
         <SafeAreaView style={styles.container}>
@@ -205,7 +219,7 @@ const ButtonsList = () => {
   }
 
   //View for info on New York City, New York
-  if(currView == 11) {
+  if(currView == viewDictionary.newYorkCity) {
     return (
       <ScrollView centerContent={true}>
         <SafeAreaView style={styles.container}>
@@ -221,7 +235,7 @@ const ButtonsList = () => {
   }
 
   //View for info on Sydney, Australia
-  if(currView == 12) {
+  if(currView == viewDictionary.Sydney) {
     return (
       <ScrollView centerContent={true}>
         <SafeAreaView style={styles.container}>
@@ -237,7 +251,7 @@ const ButtonsList = () => {
   }
 
   //View for info on Medellin, Columbia
-  if(currView == 13) {
+  if(currView == viewDictionary.Medellin) {
     return (
       <ScrollView centerContent={true}>
         <SafeAreaView style={styles.container}>
