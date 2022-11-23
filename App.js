@@ -26,65 +26,37 @@ const ButtonsList = () => {
   const [currView, setCurrView] = useState(0);
 
   var viewDictionary = {
+    //"other" screens
     homeScreen: -2,
     cityList: 0,
 
-    "Savannah, Georgia": 1,
+    //city info screens
     Savannah: 1,
-
-    "Bangkok, Thailand": 2,
     Bangkok: 2,
-
-    "Singapore, Singapore": 3,
     Singapore: 3,
-
-    "Dubai, UAE": 4,
     Dubai: 4,
-
-    "Miami, Florida": 5,
     Miami: 5,
-
-    "Tokyo, Japan": 6,
     Tokyo: 6,
-
-    "Rekavik, Iceland": 7,
     Rekavik: 7,
-
-    "Shanghai, China": 8,
     Shanghai: 8,
-
-    "Chicago, Illinois": 9,
     Chicago: 9,
-
-    "Paris, France": 10,
     Paris: 10,
-
-    "New York City, New York": 11,
     newYorkCity: 11,
-
-    "Sydney, Australia": 12,
     Sydney: 12,
-
-    "Medellin, Columbia": 13,
     Medellin: 13
   };
-  //CurrView Chart:
-  // 0: Home menu for city selection
-  // 1-13: Pages containing information on specific cities
 
-  //This is a really cool trick.
+  //Creates keys for every city and puts them in the dictionary. Note: This means that 1-cityName.length+1 keys are off limits for use elsewhere
+  for(let i = 0; i < cityNames.length; i++) {
+    let city = cityNames[i]
+    viewDictionary[city] = i+1;
+  }
+
   let cityList=cityNames.map((city,index)=>{
     var dictCity = city;
     return <CityButton key={index} style={styles.button} cityName={city} onPress={() => setCurrView(viewDictionary[city])}></CityButton>
   })
-/*
-  if(currView == viewDictionary.homeScreen) {
-    return (
 
-    )
-  }
-*/
-  //The cityList view
   if(currView == viewDictionary.cityList) {
     return (
       <ScrollView centerContent={true}>
@@ -95,7 +67,6 @@ const ButtonsList = () => {
       )
   }
 
-  //View for info on Savannah, Georgia
   if(currView == viewDictionary.Savannah) {
     return (
       <View style={{justifyContent: "center",
@@ -106,7 +77,6 @@ const ButtonsList = () => {
     )
   }
 
-  //View for info on Bangkok, Thailand
   if(currView == viewDictionary.Bangkok) {
     return (
       <ScrollView centerContent={true}>
@@ -122,7 +92,6 @@ const ButtonsList = () => {
     )
   }
 
-  //View for info on Singapore, Singapore
   if(currView == viewDictionary.Singapore) {
     return (
       <ScrollView centerContent={true}>
@@ -138,7 +107,6 @@ const ButtonsList = () => {
     )
   }
 
-  //View for info on Dubai, UAE
   if(currView == viewDictionary.Dubai) {
     return (
       <ScrollView centerContent={true}>
@@ -154,7 +122,6 @@ const ButtonsList = () => {
     )
   }
 
-  //View for info on Miami, Florida
   if(currView == viewDictionary.Miami) {
     return (
       <ScrollView centerContent={true}>
@@ -170,7 +137,6 @@ const ButtonsList = () => {
     )
   }
 
-  //View for info on Tokyo, Japan
   if(currView == viewDictionary.Tokyo) {
     return (
       <ScrollView centerContent={true}>
@@ -186,7 +152,6 @@ const ButtonsList = () => {
     )
   }
 
-  //View for info on Rekavik, Iceland
   if(currView == viewDictionary.Rekavik) {
     return (
       <ScrollView centerContent={true}>
@@ -202,7 +167,6 @@ const ButtonsList = () => {
     )
   }
 
-  //View for info on Shanghai, China
   if(currView == viewDictionary.Shanghai) {
     return (
       <ScrollView centerContent={true}>
@@ -218,7 +182,6 @@ const ButtonsList = () => {
     )
   }
 
-  //View for info on Chicago, Illinois
   if(currView == viewDictionary.Chicago) {
     return (
       <ScrollView centerContent={true}>
@@ -234,7 +197,6 @@ const ButtonsList = () => {
     )
   }
 
-  //View for info on Paris, France
   if(currView == viewDictionary.Paris) {
     return (
       <ScrollView centerContent={true}>
@@ -250,7 +212,6 @@ const ButtonsList = () => {
     )
   }
 
-  //View for info on New York City, New York
   if(currView == viewDictionary.newYorkCity) {
     return (
       <ScrollView centerContent={true}>
@@ -266,7 +227,6 @@ const ButtonsList = () => {
     )
   }
 
-  //View for info on Sydney, Australia
   if(currView == viewDictionary.Sydney) {
     return (
       <ScrollView centerContent={true}>
@@ -282,7 +242,6 @@ const ButtonsList = () => {
     )
   }
 
-  //View for info on Medellin, Columbia
   if(currView == viewDictionary.Medellin) {
     return (
       <ScrollView centerContent={true}>
@@ -297,10 +256,6 @@ const ButtonsList = () => {
       </ScrollView>
     )
   }
-}
-
-function changeCurrView(currView) {
-  if(currView != 0) return(<Text style={{color: '#888'}}>This is a new view!</Text>)
 }
 
 export default ButtonsList;
