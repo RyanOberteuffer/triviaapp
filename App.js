@@ -74,7 +74,8 @@ const ButtonsList = () => {
 
   //This is a really cool trick.
   let cityList=cityNames.map((city,index)=>{
-    return <CityButton key={index} style={styles.button} cityName={city} onPress={() => setCurrView(viewDictionary.city)}></CityButton>
+    var dictCity = city;
+    return <CityButton key={index} style={styles.button} cityName={city} onPress={() => setCurrView(viewDictionary[city])}></CityButton>
   })
 /*
   if(currView == viewDictionary.homeScreen) {
