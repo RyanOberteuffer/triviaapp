@@ -21,6 +21,21 @@ const CityButton = (props) => {
   )
 }
 
+var BasicCityScreen = (props) => {
+  return (
+    <ScrollView centerContent={true}>
+      <SafeAreaView style={styles.container}>
+        <Text>Sample text here.</Text>
+        <View style={styles.bottomcontainer}>
+          <TouchableOpacity style={styles.backButton} onPress={props.onPress}>
+            <Text>Back</Text>
+          </TouchableOpacity>
+        </View>
+      </SafeAreaView>
+    </ScrollView>
+  )
+}
+
 const ButtonsList = () => {
   let cityNames = ["Savannah, Georgia", "Bangkok, Thailand", "Singapore, Singapore", "Dubai, UAE", "Miami, Florida", "Tokyo, Japan", "Rekavik, Iceland", "Shanghai, China", "Chicago, Illinois", "Paris, France", "New York City, New York", "Sydney, Australia", "Medellin, Columbia"];
   const [currView, setCurrView] = useState(0);
@@ -79,181 +94,73 @@ const ButtonsList = () => {
 
   if(currView == viewDictionary.Bangkok) {
     return (
-      <ScrollView centerContent={true}>
-        <SafeAreaView style={styles.container}>
-          <Text>Sample text here.</Text>
-          <View style={styles.bottomcontainer}>
-            <TouchableOpacity style={styles.backButton} onPress={() => setCurrView(0)}>
-              <Text>Back</Text>
-            </TouchableOpacity>
-          </View>
-        </SafeAreaView>
-      </ScrollView>
+      <BasicCityScreen onPress={() => setCurrView(0)}></BasicCityScreen>
     )
   }
 
   if(currView == viewDictionary.Singapore) {
     return (
-      <ScrollView centerContent={true}>
-        <SafeAreaView style={styles.container}>
-          <Text>Sample text here.</Text>
-          <View style={styles.bottomcontainer}>
-            <TouchableOpacity style={styles.backButton} onPress={() => setCurrView(0)}>
-              <Text>Back</Text>
-            </TouchableOpacity>
-          </View>
-        </SafeAreaView>
-      </ScrollView>
+      <BasicCityScreen onPress={() => setCurrView(0)}></BasicCityScreen>
     )
   }
 
   if(currView == viewDictionary.Dubai) {
     return (
-      <ScrollView centerContent={true}>
-        <SafeAreaView style={styles.container}>
-          <Text>Sample text here.</Text>
-          <View style={styles.bottomcontainer}>
-            <TouchableOpacity style={styles.backButton} onPress={() => setCurrView(0)}>
-              <Text>Back</Text>
-            </TouchableOpacity>
-          </View>
-        </SafeAreaView>
-      </ScrollView>
+      <BasicCityScreen onPress={() => setCurrView(0)}></BasicCityScreen>
     )
   }
 
   if(currView == viewDictionary.Miami) {
     return (
-      <ScrollView centerContent={true}>
-        <SafeAreaView style={styles.container}>
-          <Text>Sample text here.</Text>
-          <View style={styles.bottomcontainer}>
-            <TouchableOpacity style={styles.backButton} onPress={() => setCurrView(0)}>
-              <Text>Back</Text>
-            </TouchableOpacity>
-          </View>
-        </SafeAreaView>
-      </ScrollView>
+      <BasicCityScreen onPress={() => setCurrView(0)}></BasicCityScreen>
     )
   }
 
   if(currView == viewDictionary.Tokyo) {
     return (
-      <ScrollView centerContent={true}>
-        <SafeAreaView style={styles.container}>
-          <Text>Sample text here.</Text>
-          <View style={styles.bottomcontainer}>
-            <TouchableOpacity style={styles.backButton} onPress={() => setCurrView(0)}>
-              <Text>Back</Text>
-            </TouchableOpacity>
-          </View>
-        </SafeAreaView>
-      </ScrollView>
+      <BasicCityScreen onPress={() => setCurrView(0)}></BasicCityScreen>
     )
   }
 
   if(currView == viewDictionary.Rekavik) {
     return (
-      <ScrollView centerContent={true}>
-        <SafeAreaView style={styles.container}>
-          <Text>Sample text here.</Text>
-          <View style={styles.bottomcontainer}>
-            <TouchableOpacity style={styles.backButton} onPress={() => setCurrView(0)}>
-              <Text>Back</Text>
-            </TouchableOpacity>
-          </View>
-        </SafeAreaView>
-      </ScrollView>
+      <BasicCityScreen onPress={() => setCurrView(0)}></BasicCityScreen>
     )
   }
 
   if(currView == viewDictionary.Shanghai) {
     return (
-      <ScrollView centerContent={true}>
-        <SafeAreaView style={styles.container}>
-          <Text>Sample text here.</Text>
-          <View style={styles.bottomcontainer}>
-            <TouchableOpacity style={styles.backButton} onPress={() => setCurrView(0)}>
-              <Text>Back</Text>
-            </TouchableOpacity>
-          </View>
-        </SafeAreaView>
-      </ScrollView>
+      <BasicCityScreen onPress={() => setCurrView(0)}></BasicCityScreen>
     )
   }
 
   if(currView == viewDictionary.Chicago) {
     return (
-      <ScrollView centerContent={true}>
-        <SafeAreaView style={styles.container}>
-          <Text>Sample text here.</Text>
-          <View style={styles.bottomcontainer}>
-            <TouchableOpacity style={styles.backButton} onPress={() => setCurrView(0)}>
-              <Text>Back</Text>
-            </TouchableOpacity>
-          </View>
-        </SafeAreaView>
-      </ScrollView>
+      <BasicCityScreen onPress={() => setCurrView(0)}></BasicCityScreen>
     )
   }
 
   if(currView == viewDictionary.Paris) {
     return (
-      <ScrollView centerContent={true}>
-        <SafeAreaView style={styles.container}>
-          <Text>Sample text here.</Text>
-          <View style={styles.bottomcontainer}>
-            <TouchableOpacity style={styles.backButton} onPress={() => setCurrView(0)}>
-              <Text>Back</Text>
-            </TouchableOpacity>
-          </View>
-        </SafeAreaView>
-      </ScrollView>
+      <BasicCityScreen onPress={() => setCurrView(0)}></BasicCityScreen>
     )
   }
 
   if(currView == viewDictionary.newYorkCity) {
     return (
-      <ScrollView centerContent={true}>
-        <SafeAreaView style={styles.container}>
-          <Text>Sample text here.</Text>
-          <View style={styles.bottomcontainer}>
-            <TouchableOpacity style={styles.backButton} onPress={() => setCurrView(0)}>
-              <Text>Back</Text>
-            </TouchableOpacity>
-          </View>
-        </SafeAreaView>
-      </ScrollView>
+      <BasicCityScreen onPress={() => setCurrView(0)}></BasicCityScreen>
     )
   }
 
   if(currView == viewDictionary.Sydney) {
     return (
-      <ScrollView centerContent={true}>
-        <SafeAreaView style={styles.container}>
-          <Text>Sample text here.</Text>
-          <View style={styles.bottomcontainer}>
-            <TouchableOpacity style={styles.backButton} onPress={() => setCurrView(0)}>
-              <Text>Back</Text>
-            </TouchableOpacity>
-          </View>
-        </SafeAreaView>
-      </ScrollView>
+      <BasicCityScreen onPress={() => setCurrView(0)}></BasicCityScreen>
     )
   }
 
   if(currView == viewDictionary.Medellin) {
     return (
-      <ScrollView centerContent={true}>
-        <SafeAreaView style={styles.container}>
-          <Text>Sample text here.</Text>
-          <View style={styles.bottomcontainer}>
-            <TouchableOpacity style={styles.backButton} onPress={() => setCurrView(0)}>
-              <Text>Back</Text>
-            </TouchableOpacity>
-          </View>
-        </SafeAreaView>
-      </ScrollView>
+      <BasicCityScreen onPress={() => setCurrView(0)}></BasicCityScreen>
     )
   }
 }
