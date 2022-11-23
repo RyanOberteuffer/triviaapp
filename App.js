@@ -7,6 +7,7 @@
 // 6. Add a back button to all the views (except the base one, of course). DONE
 // 7. Find and add some pictures for all the cities. DONE
 // 8. For the buttons corresponding to MY two cities, add some cool stuff
+// 9. Develop the choice screen (at least - make a skeleton for it)
 
 
 import React, { useState, useEffect } from 'react';
@@ -43,6 +44,7 @@ const ButtonsList = () => {
   var viewDictionary = {
     //"other" screens
     homeScreen: -2,
+    choiceScreen: -1,
     cityList: 0,
 
     //city info screens
