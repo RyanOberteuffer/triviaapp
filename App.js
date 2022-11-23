@@ -26,19 +26,46 @@ const ButtonsList = () => {
   const [currView, setCurrView] = useState(0);
 
   var viewDictionary = {
+    homeScreen: -2,
     cityList: 0,
+
+    "Savannah, Georgia": 1,
     Savannah: 1,
+
+    "Bangkok, Thailand": 2,
     Bangkok: 2,
+
+    "Singapore, Singapore": 3,
     Singapore: 3,
+
+    "Dubai, UAE": 4,
     Dubai: 4,
+
+    "Miami, Florida": 5,
     Miami: 5,
+
+    "Tokyo, Japan": 6,
     Tokyo: 6,
+
+    "Rekavik, Iceland": 7,
     Rekavik: 7,
+
+    "Shanghai, China": 8,
     Shanghai: 8,
+
+    "Chicago, Illinois": 9,
     Chicago: 9,
+
+    "Paris, France": 10,
     Paris: 10,
+
+    "New York City, New York": 11,
     newYorkCity: 11,
+
+    "Sydney, Australia": 12,
     Sydney: 12,
+
+    "Medellin, Columbia": 13,
     Medellin: 13
   };
   //CurrView Chart:
@@ -47,10 +74,16 @@ const ButtonsList = () => {
 
   //This is a really cool trick.
   let cityList=cityNames.map((city,index)=>{
-    return <CityButton key={index} style={styles.button} cityName={city} onPress={() => setCurrView(index+1)}></CityButton>
+    return <CityButton key={index} style={styles.button} cityName={city} onPress={() => setCurrView(viewDictionary.city)}></CityButton>
   })
+/*
+  if(currView == viewDictionary.homeScreen) {
+    return (
 
-  //The home view
+    )
+  }
+*/
+  //The cityList view
   if(currView == viewDictionary.cityList) {
     return (
       <ScrollView centerContent={true}>
@@ -60,8 +93,6 @@ const ButtonsList = () => {
       </ScrollView>
       )
   }
-
-  if(currView)
 
   //View for info on Savannah, Georgia
   if(currView == viewDictionary.Savannah) {
