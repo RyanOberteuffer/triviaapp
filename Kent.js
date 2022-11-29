@@ -5,10 +5,10 @@
 // 4. Make the button layout prettier, add scrolling. DONE
 // 5. Make the buttons change views. DONE
 // 6. Add a back button to all the views (except the base one, of course). DONE
-// 7. Find and add some pictures for all the cities.
+// 7. Find and add some pictures for all the cities. DONE
 // 8. For the buttons corresponding to MY two cities, add some cool stuff
+// 9. Develop the choice screen (at least - make a skeleton for it)
 
-//Note: The iphone has a max polling rate of 100 times per second, which corresponds to an update interval of 10 ms. A polling rate of once per second is really slow, so I think that asking the user for a number between 10 and 1000 should be a good range.
 
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View, SafeAreaView, ScrollView } from 'react-native';
@@ -22,20 +22,59 @@ const CityButton = (props) => {
   )
 }
 
+var BasicCityScreen = (props) => {
+  return (
+    <ScrollView centerContent={true}>
+      <SafeAreaView style={styles.container}>
+        <Text>Sample text here.</Text>
+        <View style={styles.bottomcontainer}>
+          <TouchableOpacity style={styles.backButton} onPress={props.onPress}>
+            <Text>Back</Text>
+          </TouchableOpacity>
+        </View>
+      </SafeAreaView>
+    </ScrollView>
+  )
+}
+
 const ButtonsList = () => {
   let cityNames = ["Savannah, Georgia", "Bangkok, Thailand", "Singapore, Singapore", "Dubai, UAE", "Miami, Florida", "Tokyo, Japan", "Rekavik, Iceland", "Shanghai, China", "Chicago, Illinois", "Paris, France", "New York City, New York", "Sydney, Australia", "Medellin, Columbia"];
   const [currView, setCurrView] = useState(0);
-  //CurrView Chart:
-  // 0: Home menu for city selection
-  // 1-13: Pages containing information on specific cities
 
-  //This is a really cool trick.
+  var viewDictionary = {
+    //"other" screens
+    homeScreen: -2,
+    choiceScreen: -1,
+    cityList: 0,
+
+    //city info screens
+    Savannah: 1,
+    Bangkok: 2,
+    Singapore: 3,
+    Dubai: 4,
+    Miami: 5,
+    Tokyo: 6,
+    Rekavik: 7,
+    Shanghai: 8,
+    Chicago: 9,
+    Paris: 10,
+    newYorkCity: 11,
+    Sydney: 12,
+    Medellin: 13
+  };
+
+  //Creates keys for every city and puts them in the dictionary. Note: This means that 1-cityName.length+1 keys are off limits for use elsewhere
+  for(let i = 0; i < cityNames.length; i++) {
+    let city = cityNames[i]
+    viewDictionary[city] = i+1;
+  }
+
   let cityList=cityNames.map((city,index)=>{
-    return <CityButton key={index} style={styles.button} cityName={city} onPress={() => setCurrView(index+1)}></CityButton>
+    var dictCity = city;
+    return <CityButton key={index} style={styles.button} cityName={city} onPress={() => setCurrView(viewDictionary[city])}></CityButton>
   })
 
-  //The home view
-  if(currView == 0) {
+  if(currView == viewDictionary.cityList) {
     return (
       <ScrollView centerContent={true}>
         <SafeAreaView style={styles.container}>
@@ -45,217 +84,100 @@ const ButtonsList = () => {
       )
   }
 
-  //View for info on Savannah, Georgia
-  if(currView == 1) {
+  if(currView == viewDictionary.Savannah) {
     return (
-      <ScrollView centerContent={true}>
-        <SafeAreaView style={styles.container}>
-          <Text>Sample text here.</Text>
-          <View style={styles.bottomcontainer}>
-            <TouchableOpacity style={styles.backButton} onPress={() => setCurrView(0)}>
-              <Text>Back</Text>
-            </TouchableOpacity>
-          </View>
-        </SafeAreaView>
-      </ScrollView>
+      <View style={{justifyContent: "center",
+        alignItems: "center", 
+        backgroundColor: "purple"}}>
+                 <Text> Hello bangkok! </Text>
+      </View>
+    )
+  }
+  
+
+  if(currView == viewDictionary.Bangkok) {
+    return (
+      <BasicCityScreen onPress={() => setCurrView(0)}></BasicCityScreen>
     )
   }
 
-  //View for info on Bangkok, Thailand
-  if(currView == 2) {
+  if(currView == viewDictionary.Singapore) {
     return (
-      <ScrollView centerContent={true}>
-        <SafeAreaView style={styles.container}>
-          <Text>Sample text here.</Text>
-          <View style={styles.bottomcontainer}>
-            <TouchableOpacity style={styles.backButton} onPress={() => setCurrView(0)}>
-              <Text>Back</Text>
-            </TouchableOpacity>
-          </View>
-        </SafeAreaView>
-      </ScrollView>
+      <BasicCityScreen onPress={() => setCurrView(0)}></BasicCityScreen>
     )
   }
 
-  //View for info on Singapore, Singapore
-  if(currView == 3) {
+  if(currView == viewDictionary.Dubai) {
     return (
-      <ScrollView centerContent={true}>
-        <SafeAreaView style={styles.container}>
-          <Text>Sample text here.</Text>
-          <View style={styles.bottomcontainer}>
-            <TouchableOpacity style={styles.backButton} onPress={() => setCurrView(0)}>
-              <Text>Back</Text>
-            </TouchableOpacity>
-          </View>
-        </SafeAreaView>
-      </ScrollView>
+      <BasicCityScreen onPress={() => setCurrView(0)}></BasicCityScreen>
     )
   }
 
-  //View for info on Dubai, UAE
-  if(currView == 4) {
+  if(currView == viewDictionary.Miami) {
     return (
-      <ScrollView centerContent={true}>
-        <SafeAreaView style={styles.container}>
-          <Text>Sample text here.</Text>
-          <View style={styles.bottomcontainer}>
-            <TouchableOpacity style={styles.backButton} onPress={() => setCurrView(0)}>
-              <Text>Back</Text>
-            </TouchableOpacity>
-          </View>
-        </SafeAreaView>
-      </ScrollView>
+      <BasicCityScreen onPress={() => setCurrView(0)}></BasicCityScreen>
     )
   }
 
-  //View for info on Miami, Florida
-  if(currView == 5) {
+  if(currView == viewDictionary.Tokyo) {
     return (
-      <ScrollView centerContent={true}>
-        <SafeAreaView style={styles.container}>
-          <Text>Sample text here.</Text>
-          <View style={styles.bottomcontainer}>
-            <TouchableOpacity style={styles.backButton} onPress={() => setCurrView(0)}>
-              <Text>Back</Text>
-            </TouchableOpacity>
-          </View>
-        </SafeAreaView>
-      </ScrollView>
+      <BasicCityScreen onPress={() => setCurrView(0)}></BasicCityScreen>
     )
   }
 
-  //View for info on Tokyo, Japan
-  if(currView == 6) {
+  if(currView == viewDictionary.Rekavik) {
     return (
-      <ScrollView centerContent={true}>
-        <SafeAreaView style={styles.container}>
-          <Text>Sample text here.</Text>
-          <View style={styles.bottomcontainer}>
-            <TouchableOpacity style={styles.backButton} onPress={() => setCurrView(0)}>
-              <Text>Back</Text>
-            </TouchableOpacity>
-          </View>
-        </SafeAreaView>
-      </ScrollView>
+      <BasicCityScreen onPress={() => setCurrView(0)}></BasicCityScreen>
     )
   }
 
-  //View for info on Rekavik, Iceland
-  if(currView == 7) {
+  if(currView == viewDictionary.Shanghai) {
     return (
-      <ScrollView centerContent={true}>
-        <SafeAreaView style={styles.container}>
-          <Text>Sample text here.</Text>
-          <View style={styles.bottomcontainer}>
-            <TouchableOpacity style={styles.backButton} onPress={() => setCurrView(0)}>
-              <Text>Back</Text>
-            </TouchableOpacity>
-          </View>
-        </SafeAreaView>
-      </ScrollView>
+      <BasicCityScreen onPress={() => setCurrView(0)}></BasicCityScreen>
     )
   }
 
-  //View for info on Shanghai, China
-  if(currView == 8) {
+  if(currView == viewDictionary.Chicago) {
     return (
-      <ScrollView centerContent={true}>
-        <SafeAreaView style={styles.container}>
-          <Text>Sample text here.</Text>
-          <View style={styles.bottomcontainer}>
-            <TouchableOpacity style={styles.backButton} onPress={() => setCurrView(0)}>
-              <Text>Back</Text>
-            </TouchableOpacity>
-          </View>
-        </SafeAreaView>
-      </ScrollView>
+      <BasicCityScreen onPress={() => setCurrView(0)}></BasicCityScreen>
     )
   }
 
-  //View for info on Chicago, Illinois
-  if(currView == 9) {
+  if(currView == viewDictionary.Paris) {
     return (
-      <ScrollView centerContent={true}>
-        <SafeAreaView style={styles.container}>
-          <Text>Sample text here.</Text>
-          <View style={styles.bottomcontainer}>
-            <TouchableOpacity style={styles.backButton} onPress={() => setCurrView(0)}>
-              <Text>Back</Text>
-            </TouchableOpacity>
-          </View>
-        </SafeAreaView>
-      </ScrollView>
+      <BasicCityScreen onPress={() => setCurrView(0)}></BasicCityScreen>
     )
   }
 
-  //View for info on Paris, France
-  if(currView == 10) {
+  if(currView == viewDictionary.newYorkCity) {
     return (
-      <ScrollView centerContent={true}>
-        <SafeAreaView style={styles.container}>
-          <Text>Sample text here.</Text>
-          <View style={styles.bottomcontainer}>
-            <TouchableOpacity style={styles.backButton} onPress={() => setCurrView(0)}>
-              <Text>Back</Text>
-            </TouchableOpacity>
-          </View>
-        </SafeAreaView>
-      </ScrollView>
+      <BasicCityScreen onPress={() => setCurrView(0)}></BasicCityScreen>
     )
   }
 
-  //View for info on New York City, New York
-  if(currView == 11) {
+
+  if(currView == viewDictionary.Sydney) {
     return (
-      <ScrollView centerContent={true}>
-        <SafeAreaView style={styles.container}>
-          <Text>Sample text here.</Text>
-          <View style={styles.bottomcontainer}>
-            <TouchableOpacity style={styles.backButton} onPress={() => setCurrView(0)}>
-              <Text>Back</Text>
-            </TouchableOpacity>
-          </View>
-        </SafeAreaView>
-      </ScrollView>
+      <View style = {{justifyContent: "center",
+      alignItems: "center",
+      backgroundColor: "black"}}> 
+                <Text> Welcome to Sydnedy, Australia! </Text>
+      <BasicCityScreen onPress={() => setCurrView(0)}></BasicCityScreen>
+      </View>
+      /* Questions for the trivia:
+
+
+
+
+      */
     )
   }
 
-  //View for info on Sydney, Australia 
-  if(currView == 12) {
+  if(currView == viewDictionary.Medellin) {
     return (
-      <ScrollView centerContent={true}>
-        <SafeAreaView style={styles.container}>
-          <Text>This is where you put information about the city </Text> 
-          <View style={styles.bottomcontainer}>
-            <TouchableOpacity style={styles.backButton} onPress={() => setCurrView(0)}>
-              <Text>Back</Text>
-            </TouchableOpacity>
-          </View>
-        </SafeAreaView>
-      </ScrollView>
+      <BasicCityScreen onPress={() => setCurrView(0)}></BasicCityScreen>
     )
   }
-
-  //View for info on Medellin, Columbia
-  if(currView == 13) {
-    return (
-      <ScrollView centerContent={true}>
-        <SafeAreaView style={styles.container}>
-          <Text>Sample text here.</Text>
-          <View style={styles.bottomcontainer}>
-            <TouchableOpacity style={styles.backButton} onPress={() => setCurrView(0)}>
-              <Text>Back</Text>
-            </TouchableOpacity>
-          </View>
-        </SafeAreaView>
-      </ScrollView>
-    )
-  }
-}
-
-function changeCurrView(currView) {
-  if(currView != 0) return(<Text style={{color: '#888'}}>This is a new view!</Text>)
 }
 
 export default ButtonsList;
