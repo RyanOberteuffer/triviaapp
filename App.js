@@ -10,7 +10,7 @@
 
 
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, TextInput, TouchableOpacity, View, SafeAreaView, ScrollView } from 'react-native';
+import { StyleSheet, Text, TextInput, TouchableOpacity, View, SafeAreaView, ScrollView, SectionList} from 'react-native';
 import { Accelerometer } from 'expo-sensors';
 
 const CityButton = (props) => {
@@ -64,7 +64,7 @@ const ButtonsList = () => {
   if(currView == 2) {
     return (
       <ScrollView centerContent={true}>
-        <SafeAreaView style={styles.container}>
+        <SafeAreaView style={styles.container}
           <Text>Sample text here.</Text>
           <View style={styles.bottomcontainer}>
             <TouchableOpacity style={styles.backButton} onPress={() => setCurrView(0)}>
